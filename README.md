@@ -8,4 +8,4 @@ Topics:
 • Animation of Models along Key Frames (Animation Keys)
 
 
-Everything is set up. If there is a APK error ,please run VS installer and install the corresponding version.
+Everything is set up. If there is a SDK error ,please run VS installer and install the corresponding version.
