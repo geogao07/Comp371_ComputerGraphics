@@ -138,41 +138,41 @@ LightCoef = 0.05 0.02 0.002
 Name = "Source2"
 LightColor = 0.5 1.0 1.0
 LightPosition = 0.0f 10.0f 20.0f 1.0f
-LightCoef = 0.05 0.02 0.002
+LightCoef = 0.02 0.05 0.002
 
 [LightSource]
 Name = "Source3"
 LightColor = 0.75 1.0 1.0
 LightPosition = 0.0f 10.0f 20.0f 1.0f
-LightCoef = 0.05 0.02 0.002
+LightCoef = 0.01 0.02 0.002
 
 [LightSource]
 Name = "Source4"
 LightColor = 1.0 0.25 1.0
 LightPosition = 0.05f 20.0f 20.0f 1.0f
-LightCoef = 0.05 0.02 0.002
+LightCoef = 0.03 0.02 0.004
 
 [LightSource]
 Name = "Source5"
 LightColor = 1.0 0.5 1.0
 LightPosition = 10.0f 10.0f 10.0f 1.0f
-LightCoef = 0.05 0.02 0.002
+LightCoef = 0.05 0.05 0.005
 
 [LightSource]
 Name = "Source6"
 LightColor = 1.0 0.75 1.0
 LightPosition = 20.0f 10.0f 0.0f 1.0f
-LightCoef = 0.05 0.02 0.002
+LightCoef = 0.05 0.06 0.002
 
 [LightSource]
 Name = "Source7"
 LightColor = 1.0 1.0 0.0
 LightPosition = 1.0f 10.0f 10.0f 1.0f
-LightCoef = 0.05 0.02 0.002
+LightCoef = 0.1 0.02 0.005
 
 [LightSource]
 Name = "Source8"
 LightColor = 1.0 1.0 0.5
 LightPosition = 0.0f 10.0f 30.0f 1.0f
-LightCoef = 0.05 0.02 0.002
+LightCoef = 0.05 0.2 0.002
 

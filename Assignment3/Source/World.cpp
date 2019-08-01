@@ -365,6 +365,10 @@ void World::LoadScene(const char * scene_path)
                 psd->Load(iss);
                 AddParticleDescriptor(psd);
             }
+			else if (result == "LightSource")
+			{
+				//waiting for implementation
+			}
 			else if ( result.empty() == false && result[0] == '#')
 			{
 				// this is a comment line
