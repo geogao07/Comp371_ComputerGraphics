@@ -1,0 +1,54 @@
+#version 330 core
+
+
+// Light and Material Uniform Variables
+uniform vec4 materialCoefficients; // x: ambient   y: diffuse   z: specular   w: specular exponent
+
+
+uniform vec3 lightColor;
+uniform vec3 lightAttenuation; // x: kC  y: kL  z: kQ
+
+// Ouput to fragment shader
+out vec3 color;
+
+in vec4 v_color;
+in vec3 normal; // You will need this when you do per-fragment lighting
+in vec3 eyeVector;       // Vector from the vertex to the Camera in View Space
+in vec4 lightVector;     // Vector from the vertex to the Light in View Space
+						 // Length of lightVector is the distance between light and vertex
+						// if w = 1: Point light, if w = 0: directional light
+
+
+void main()
+{
+
+
+	// set the fragment color to the interpolated vertex color
+	//color = v_color.rgb;
+	// Implment Phong Shading based on the parameters above
+	// Remember that directional light don't have attenuation
+	vec3 normLightVector = normalize(vec3(lightVector));
+	vec3 normEyeVector = normalize(eyeVector);
+	vec3 normNormal = normalize(normal);
+
+	float attenuation = 1;
+
+	// Calculate attenuation
+	// if w = 1: Point light, if w = 0: directional light
+	if(lightVector.w > 0.9f) {
+		float distance = length(vec3(lightVector));
+        attenuation = 1/((lightAttenuation.x) + (lightAttenuation.y * distance) + (lightAttenuation.z * distance * distance));
+    }
+
+	float normalLightAngle = clamp(dot(normNormal, normLightVector), 0, 1);
+	vec3 normReflectedLight = normalize( 2 * normalLightAngle * normNormal-normLightVector);
+	float reflectedLightAngle = clamp(dot(normEyeVector, normReflectedLight), 0, 1);
+
+	// Calculate 3 types of light
+	vec3 ambient = materialCoefficients.x * lightColor;
+	vec3 diffuse = materialCoefficients.y * attenuation * normalLightAngle * lightColor;
+	vec3 specular = materialCoefficients.z * attenuation * pow(reflectedLightAngle, materialCoefficients.w) * lightColor; 
+
+	color = v_color * (ambient + diffuse + specular);
+
+}
